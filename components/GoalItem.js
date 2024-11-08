@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TextInput, Button, ScrollView, FlatList } from 'react-native';
+import { Text, View } from 'react-native';
 
 const GoalItem = ({styles, itemData}) => {
     return (
