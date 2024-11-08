@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TextInput, Button, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, ScrollView, FlatList } from 'react-native';
 import {useState} from 'react'
 
 
@@ -24,15 +24,13 @@ export default function App() {
         <Button onPress={addGoalHandler} title='Add Goal'></Button>
       </View>
       <View style={styles.goalsContainer}>
-      <ScrollView alwaysBounceVertical={false}>
-        {courseGoals.map((goal) => (
-
-          <View key={goal} style={styles.goalItem}>
-            <Text style={styles.goalText} >{goal}</Text>
+      <FlatList data={courseGoals} renderItem={itemData => {
+        return (
+          <View style={styles.goalItem}>
+            <Text style={styles.goalText}>{itemData.item}</Text>
           </View>
-          
-          ))}
-      </ScrollView>
+        );
+      }} alwaysBounceVertical={false}/>
       </View>
     </View> 
   );
@@ -74,3 +72,5 @@ const styles = StyleSheet.create({
     color: 'white'
   }
 });
+
+//  export ANDROID_HOME=/home/daniel/Android/Sdk
