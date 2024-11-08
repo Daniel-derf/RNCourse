@@ -1,4 +1,4 @@
-import { StyleSheet, View, TextInput, Button, FlatList } from 'react-native';
+import { View, TextInput, Button } from 'react-native';
 import { useState } from 'react';
 
 const GoalInput = ({ styles, setCourseGoals }) => {
@@ -11,10 +11,9 @@ const GoalInput = ({ styles, setCourseGoals }) => {
     function addGoalHandler() {
         setCourseGoals(currentCourseGoals => [
           ...currentCourseGoals, 
-          enteredGoalText
+          {text: enteredGoalText, id: Math.random().toString()}
         ]);
     };
-
 
     return (
         <View style={styles.inputContainer}>
