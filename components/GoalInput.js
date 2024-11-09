@@ -19,7 +19,10 @@ const GoalInput = ({ styles, setCourseGoals, visible }) => {
         <Modal visible={visible} animationType='slide'>
         <View style={styles.inputContainer}>
             <TextInput onChangeText={goalInputHandler} style={styles.textInput} placeholder='Your course goal!'></TextInput>
-            <Button onPress={addGoalHandler} title='Add Goal'></Button>
+            <View style={styles.buttonContainer} >
+                <View style={styles.button}><Button onPress={addGoalHandler} title='Add Goal'></Button></View>
+                <View style={styles.button}><Button title='Cancel' /></View>               
+            </View>            
         </View>
         </Modal>
     )
