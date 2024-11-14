@@ -19,10 +19,10 @@ const GoalInput = ({ styles, setCourseGoals, endAddGoalHandler , visible }) => {
         <Modal visible={visible} animationType='slide'>
         <View style={sty.inputContainer}>
           <Image style={sty.image} source={require('../assets/images/goal.png')} />
-            <TextInput onChangeText={goalInputHandler} style={styles.textInput} placeholder='Your course goal!'></TextInput>
+            <TextInput onChangeText={goalInputHandler} style={sty.textInput} placeholder='Your course goal!'></TextInput>
             <View style={styles.buttonContainer} >
-                <View style={styles.button}><Button onPress={addGoalHandler} title='Add Goal'></Button></View>
-                <View style={styles.button}><Button onPress={endAddGoalHandler} title='Cancel' /></View>               
+                <View style={styles.button}><Button onPress={endAddGoalHandler} color='#f31282' title='Cancel' /></View>               
+                <View style={styles.button}><Button onPress={addGoalHandler} color='#5e0acc' title='Add Goal'></Button></View>
             </View>            
         </View>
         </Modal>
@@ -45,5 +45,14 @@ const sty = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: "#cccccc",
     backgroundColor: '#311b6b'
+  },
+  textInput: {
+    borderWidth: 1,
+    borderColor: '#e4d0ff',
+    backgroundColor:'#e4d0ff',
+    color: '#120438',
+    borderRadius: 6,
+    width: '100%',
+    padding: 16
   },
 })
