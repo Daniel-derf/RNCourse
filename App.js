@@ -13,6 +13,10 @@ export default function App() {
     setModalIsVisible(true);
   }
 
+  function endAddGoalHandler() {
+    setModalIsVisible(false)
+  }
+
   function deleteGoalHandler(id){
     setCourseGoals(currentCourseGoals => {
       return currentCourseGoals.filter((goal) => goal.id !== id)
@@ -24,10 +28,15 @@ export default function App() {
     <View style={styles.appContainer}>
       <Button title='Add New Goal' color="#5e0acc" 
       onPress={startAddGoalHandler} />
-      <GoalInput visible={modalIsVisible} styles={styles} setCourseGoals={setCourseGoals} />
+      <GoalInput endAddGoalHandler={endAddGoalHandler} setCourseGoals={setCourseGoals} visible={modalIsVisible} styles={styles} />
       <View style={styles.goalsContainer}>
       <FlatList data={courseGoals} renderItem={itemData => {
-        return <GoalItem styles={styles} deleteGoalHandler={deleteGoalHandler} itemData={itemData} />;
+
+        return <GoalItem styles={styles} 
+        
+        deleteGoalHandler={deleteGoalHandler} 
+        itemData={itemData} />;
+
       }} alwaysBounceVertical={false}/>
       </View>
     </View> 
@@ -39,15 +48,6 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 50,
     paddingHorizontal: 16,
-  },
-  inputContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 24,
-    padding: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: "#cccccc"
   },
   textInput: {
     borderWidth: 1,
